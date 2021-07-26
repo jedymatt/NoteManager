@@ -14,8 +14,11 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $notes = Note::latest()->get();
-        
+        $notes = Note::select()
+            ->orderBy('updated_at', 'DESC')
+            ->orderBy('id', 'DESC')
+            ->get();
+
         return view('note.index', compact('notes'));
     }
 
@@ -40,6 +43,7 @@ class NoteController extends Controller
 
         $request->validate([
             'title' => 'required|unique:notes|max:255',
+            'content' => ''
         ]);
 
         Note::create($request->all());
@@ -56,7 +60,7 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        return response()->view('note.show', $note);
+        //
     }
 
     /**
@@ -67,7 +71,7 @@ class NoteController extends Controller
      */
     public function edit(Note $note)
     {
-        //
+        return view('note.edit', $note);
     }
 
     /**
@@ -79,7 +83,10 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-        //
+
+        $note->update($request->all());
+
+        return $this->edit($note);
     }
 
     /**

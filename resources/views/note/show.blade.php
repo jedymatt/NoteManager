@@ -4,7 +4,8 @@
 
 
 <div class="container p-4">
-    {{ dd($id) }}
+    <h5>{{ $title }}</h5>
+    <p class="lead">{{ $content }}</p>
 </div>
 
-@endsection)
+@endsection

@@ -4,7 +4,22 @@
 
 <div class="container p-4">
     <div class="row">
-        <div class="col-md-auto ms-auto my-4">
+
+        <!-- Alert -->
+        @if(session('success'))
+        <div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        @endif
+
+        
+
+        <!-- Create Note -->
+        <div class="col-md-auto ms-auto">
             <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#createNoteModal">
                 Create Note
             </button>
@@ -42,7 +57,7 @@
         </div>
 
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4 my-auto">
         @foreach($notes as $note)
         <div class="col">
             <div class="card shadow-sm">
@@ -53,7 +68,7 @@
                         {{ $note->content}}
                     </p>
 
-                    <a href="{{ route('notes.show', $note->id) }}" class="stretched-link">See more</a>
+                    <a href="{{ route('notes.edit', $note) }}" class="stretched-link">See more</a>
                 </div>
                 <div class="card-footer text-muted small text-end">
                     Modified at {{ $note->updated_at->format('M j, Y H:i:s A') }}
