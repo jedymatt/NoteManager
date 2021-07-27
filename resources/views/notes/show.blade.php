@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container p-4">
+    @include('notes.alert')
     <form action="{{ route('notes.update', $id) }}" method="post">
         @method('PUT')
         @csrf
@@ -16,9 +16,15 @@
                 <label for="content">Content</label>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <div class="float-end m-1">
             <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+    <form action="{{ route('notes.destroy', $id) }}" method="post">
+        @method('DELETE')
+        @csrf
+        <div class="float-end m-1">
+            <button type="submit" class="btn btn-danger">Delete</button>
         </div>
     </form>
 </div>

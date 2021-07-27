@@ -22,4 +22,6 @@ use App\Http\Controllers\NoteController;
 Route::get('/', function () {
     return redirect()->route('notes.index');
 });
-Route::resource('notes', NoteController::class);
+Route::resource('notes', NoteController::class)->except([
+    'create','edit',
+]);

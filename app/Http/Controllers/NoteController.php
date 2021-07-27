@@ -19,7 +19,7 @@ class NoteController extends Controller
             ->orderBy('id', 'DESC')
             ->get();
 
-        return view('note.index', compact('notes'));
+        return view('notes.index', compact('notes'));
     }
 
     /**
@@ -48,7 +48,12 @@ class NoteController extends Controller
 
         Note::create($request->all());
 
-        return $this->index()
+        $notes = Note::select()
+            ->orderBy('updated_at', 'DESC')
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        return redirect()->route('notes.index')
             ->with('success', 'Note successfuly added!');
     }
 
@@ -60,7 +65,7 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        //
+        return view('notes.show', $note);
     }
 
     /**
@@ -71,7 +76,7 @@ class NoteController extends Controller
      */
     public function edit(Note $note)
     {
-        return view('note.edit', $note);
+        //
     }
 
     /**
@@ -86,7 +91,8 @@ class NoteController extends Controller
 
         $note->update($request->all());
 
-        return $this->edit($note);
+        return redirect()->route('notes.show', $note)
+            ->with('success', 'Note successfuly updated!');
     }
 
     /**
@@ -97,6 +103,9 @@ class NoteController extends Controller
      */
     public function destroy(Note $note)
     {
-        //
+        $note->delete();
+
+        return redirect()->route('notes.index')
+            ->with('danger', 'Note successfuly deleted!');
     }
 }
