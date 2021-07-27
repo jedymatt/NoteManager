@@ -8,7 +8,7 @@
         @csrf
         <div class="modal-body">
             <div class="form-floating mb-3">
-                <input class="form-control" name="title" id="title" type="text" placeholder="Title" value="{{ $title }}">
+                <input class="form-control" name="title" id="title" type="text" placeholder="Title" value="{{ $title }}" autocomplete="off">
                 <label for="title">Title</label>
             </div>
             <div class="form-floating">
