@@ -23,5 +23,5 @@ Route::get('/', function () {
     return redirect()->route('notes.index');
 });
 Route::resource('notes', NoteController::class)->except([
-    'create','edit',
+    'edit'
 ]);

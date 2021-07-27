@@ -6,9 +6,15 @@
     <div class="row">
 
         <!-- Alert -->
-        @include('notes.alert')
+        <div class="d-grid">
+            @include('notes.alert')
+        </div>
+        <div class="col-md-auto ms-auto">
 
-        @include('notes.create')
+            <a role="button" href="{{ route('notes.create') }}" class="btn btn-primary float-end">
+                Create Note
+            </a>
+        </div>
 
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4 my-auto">
