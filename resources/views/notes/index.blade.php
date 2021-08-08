@@ -24,7 +24,7 @@
                 <!-- <h5 class="card-header">{{ $note->title }}</h5> -->
                 <div class="card-body">
                     <h5 class="card-title"><a class="stretched-link" href="{{ route('notes.show', $note) }}">{{ $note->title }}</a></h5>
-                    <p class="card-text">
+                    <p class="card-text text-truncate">
                         {{ $note->content}}
                     </p>
 

@@ -22,7 +22,8 @@ Install necessary composer dependencies and npm packages
 
 ```
 composer install
-npm install && npm run dev
+npm install
+npm run dev
 ```
 
 ---
