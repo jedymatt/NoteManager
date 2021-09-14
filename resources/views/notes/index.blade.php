@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-auto ms-auto">
 
-            <a role="button" href="{{ route('notes.create') }}" class="btn btn-primary float-end">
+            <a class="btn btn-primary text-white shadow" role="button" href="{{ route('notes.create') }}" class="btn btn-primary float-end">
                 Create Note
             </a>
         </div>
