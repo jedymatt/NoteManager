@@ -2,7 +2,7 @@
 
 A simple note manager with CRUD implementation.
 
-![Web Page Screenshot](public/screenshots/Screenshot%202021-09-14%20175757.png)
+![Web Page Screenshot](public/screenshots/website.png)
 
 ## Instruction on how to run in your localhost
 
